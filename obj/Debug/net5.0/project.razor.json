@@ -111,39 +111,6 @@
         }
       },
       {
-        "HashCode": -1796849622,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.AnularRegistro",
-        "AssemblyName": "Tarea-7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "AnularRegistro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.AnularRegistro"
-        }
-      },
-      {
-        "HashCode": 1927694292,
-        "Kind": "Components.Component",
-        "Name": "Tarea_7.Pages.AnularRegistro",
-        "AssemblyName": "Tarea-7",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Tarea_7.Pages.AnularRegistro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Tarea_7.Pages.AnularRegistro",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 970865429,
         "Kind": "Components.Component",
         "Name": "Tarea_7.Pages.VacunadosXSigno",
@@ -173,6 +140,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Tarea_7.Pages.VacunadosXSigno",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1796849622,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.AnularRegistro",
+        "AssemblyName": "Tarea-7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "AnularRegistro"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.AnularRegistro"
+        }
+      },
+      {
+        "HashCode": 1927694292,
+        "Kind": "Components.Component",
+        "Name": "Tarea_7.Pages.AnularRegistro",
+        "AssemblyName": "Tarea-7",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Tarea_7.Pages.AnularRegistro"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Tarea_7.Pages.AnularRegistro",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
