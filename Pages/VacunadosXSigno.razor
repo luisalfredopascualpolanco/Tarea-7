@@ -1,0 +1,30 @@
+@page "/vacunadoXsigno"
+
+<br>
+<h1>Listado de vacunados por signo zodiacal</h1>
+<br>
+
+<div>
+    <table class = "table table-bordered">
+        <thead>
+            <tr>
+                @foreach (var signo in signos)
+                {
+                    <th>@signo</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@code
+{
+    string[] signos = {"Capricornio", "Acuario", "Piscis", "Aries", "Tauro", "Géminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario"};
+
+    
+}
