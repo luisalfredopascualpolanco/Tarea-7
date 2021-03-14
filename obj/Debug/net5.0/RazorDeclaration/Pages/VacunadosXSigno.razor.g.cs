@@ -13,70 +13,70 @@ namespace Tarea_7.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 1 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 2 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 3 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 4 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 5 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 6 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 7 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 8 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 9 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using Tarea_7;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
+#line 10 "c:\Users\Ramon\Documents\GitHub\Tarea-7\_Imports.razor"
 using Tarea_7.Shared;
 
 #line default
@@ -91,7 +91,7 @@ using Tarea_7.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "C:\Users\Ramon\Documents\GitHub\Tarea-7\Pages\VacunadosXSigno.razor"
+#line 26 "c:\Users\Ramon\Documents\GitHub\Tarea-7\Pages\VacunadosXSigno.razor"
  
     string[] signos = {"Capricornio", "Acuario", "Piscis", "Aries", "Tauro", "Géminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario"};
 
