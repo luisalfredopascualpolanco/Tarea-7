@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ES2X2xi/zAuYuX4h0jBBOBhapW1+Z0JV+llR6ygcrOqLGU4d8YhndFly21BUxhdsrfr5KmPC48ZMZOxxp+NkVg==",
+  "dgSpecHash": "OYFqcWXpCiSYVF9SLVqiAVsLdoWpICiuXKR376GL+I+q1qNJ9d0rata1272CQoLQVUhjP59LD2BP48qBfBaqGQ==",
   "success": true,
   "projectFilePath": "/Users/alejandro/Itla/C5/prog_3/Tarea-7/Tarea-7.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/alejandro/.nuget/packages/system.net.http.json/5.0.0/system.net.http.json.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

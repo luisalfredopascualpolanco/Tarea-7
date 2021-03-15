@@ -1,0 +1,31 @@
+.ocultar[b-vsgk95d65g] {
+    display: none;
+}
+
+.ced[b-vsgk95d65g] {
+    z-index: 11;
+}
+
+.mostrar[b-vsgk95d65g] {
+    z-index: 1;
+    position: relative;
+    animation-name: mostrar-b-vsgk95d65g;
+    animation-duration: 1s;
+}
+
+@keyframes mostrar-b-vsgk95d65g {
+    0% {
+        opacity: 0;
+        top: -50px;
+    }
+    50% {
+        opacity: .2;
+    }
+    70% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
