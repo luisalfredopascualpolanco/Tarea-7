@@ -1,0 +1,215 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@using System.Linq
+
+
+
+@page "/Consulta"
+ 
+
+
+ <h1>Lista de Vacunados por Nombre y Apellido</h1>
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Cedula
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Telefono
+                </th>
+                <th>
+                    Fecha de Nacimiento
+                </th>
+                <th>
+                    Provincia
+                </th>
+                <th>
+                    Vacuna Recibida
+                </th>
+                <th>
+                    Fecha Primera Dosis
+                </th>
+                <th>
+                    Fecha Segunda Dosis
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var persona in dato)
+                {
+                    <td>
+                        @persona.Cedula
+                    </td>
+                    <td>
+                        @persona.Nombres
+                    </td>
+                    <td>
+                        @persona.Apellidos
+                    </td>
+                    <td>
+                        @persona.Telefono
+                    </td>
+                    <td>
+                        @persona.Nacimiento
+                    </td>
+                    <td>
+                        @persona.Provincia
+                    </td>
+                    <td>
+                        @persona.VacunaRecibida
+                    </td>
+                    <td>
+                        @persona.PrimeraDosis
+                    </td>
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+   
+
+    @code {
+        public class Persona
+        {
+            private string _apellidos;
+            private DateTime _nacimiento;
+
+            public string Cedula { get; set; }
+            public string Nombres { get; set; }
+            public string Apellidos
+            {
+                get
+                {
+                    if (string.IsNullOrEmpty(_apellidos))
+                        return Apellido1 + " " + Apellido2;
+                    return _apellidos;
+                }
+
+                set
+                {
+                    _apellidos = value;
+                }
+            }
+            public string Apellido1 { get; set; }
+            public string Apellido2 { get; set; }
+            public string Telefono { get; set; }
+            public string FechaNacimiento
+            {
+                get
+                {
+                    return FechaNacimiento;
+                }
+
+                set
+                {
+                    _nacimiento = TransformarIsoAFecha(value);
+                }
+            }
+            public DateTime Nacimiento
+            {
+                get
+                {
+                    return _nacimiento;
+                }
+
+                set
+                {
+                    _nacimiento = value;
+                }
+            }
+            public DateTime PrimeraDosis { get; set; }
+            public DateTime SegundaDosis { get; set; }
+            public string LugarNacimiento { get; set; }
+            public string Provincia { get; set; }
+            public string VacunaRecibida { get; set; }
+
+            private DateTime TransformarIsoAFecha(string fecha)
+            {
+                string format = "yyyy-MM-dd hh:mm:ss.fff";
+                return DateTime.ParseExact(fecha, format, System.Globalization.CultureInfo.InvariantCulture);
+            }
+
+        }
+        protected override void OnInitialized()
+        {
+            BuscarPorNombre("Ramon");
+        }
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-7UUUADN;Initial Catalog=JORNADA_DE_VACUNACION;Integrated Security=True");
+        SqlCommand comando;
+        SqlDataReader leer;
+        List<Persona> dato = new List<Persona>();
+        public void BuscarPorNombre(string Nombre)
+        {
+            comando = new SqlCommand("SP_BUSCAR_VACUNADOS_NOMBRE", con);
+            comando.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            comando.Parameters.AddWithValue("@NOMBRES", Nombre);
+            leer = comando.ExecuteReader();
+            while(leer.Read())
+            {
+                Persona persona = new Persona();
+                persona.Nombres = leer.GetString("NOMBRES");
+                persona.Apellidos = leer.GetString("APELLIDOS");
+                persona.Telefono = leer.GetString("TELEFONO");
+                persona.Nacimiento = leer.GetDateTime("FECHA_DE_NACIMIENTO");
+                persona.Cedula = leer.GetString("CEDULA");
+                persona.Provincia = leer.GetString("PROVINCIA");
+                persona.VacunaRecibida = leer.GetString("VACUNA_RECIBIDA");
+                persona.PrimeraDosis = leer.GetDateTime("FECHA_PRIMERA_DOSIS");
+                
+
+
+                dato.Add(persona);
+
+            }
+            con.Close();
+
+        }
+        public void BuscarPorApellido(string Apellido)
+        {
+            comando = new SqlCommand("SP_BUSCAR_VACUNADOS_APELLIDO", con);
+            comando.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            comando.Parameters.AddWithValue("@APELLIDOS", Apellido);
+            comando.ExecuteNonQuery();
+            leer = comando.ExecuteReader();
+            con.Close();
+        }
+        public void BuscarTodos()
+        {
+
+            comando = new SqlCommand("select * from VACUNACION", con);
+            con.Open();
+            leer = comando.ExecuteReader();
+            // comando.ExecuteNonQuery();
+            while (leer.Read())
+            {
+                Persona persona = new Persona();
+                persona.Nombres = leer.GetString("NOMBRES");
+                persona.Apellidos = leer.GetString("APELLIDOS");
+                persona.Telefono = leer.GetString("TELEFONO");
+                persona.Nacimiento = leer.GetDateTime("FECHA_DE_NACIMIENTO");
+                persona.Cedula = leer.GetString("CEDULA");
+                persona.Provincia = leer.GetString("PROVINCIA");
+                persona.VacunaRecibida = leer.GetString("VACUNA_RECIBIDA");
+                persona.PrimeraDosis = leer.GetDateTime("FECHA_PRIMERA_DOSIS");
+                
+
+
+                dato.Add(persona);
+            }
+            con.Close();
+        }
+
+
+    }
