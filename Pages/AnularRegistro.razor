@@ -5,6 +5,37 @@
 <br>
 
 <div>
-    <input type="text" placeholder = "Introduzca la cédula"><br><br>
-    <button class = "btn btn-primary">Eliminar registro</button>
+    <input type="text" @bind-value="@cedula" placeholder="Introduzca la cédula"><br><br>
+    <button class="btn btn-primary">Eliminar registro</button>
 </div>
+
+@code
+{
+    @using System.Data;
+    @using System.Data.SqlClient;
+
+    string cedula;
+
+    SqlConnection conexion = null;
+
+    private void eliminarRegistro()
+    {
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection();
+        }
+
+        #endregion
+
+        SqlCommand cmd = new SqlCommand("SP_ELIMINAR_VACUNADO", conexion);
+        cmd.CommandType = CommandType.StoredProcedure;
+        conexion.Open();
+
+        cmd.Parameters.AddWithValue("@CEDULA", cedula);
+
+        cmd.ExecuteNonQuery();
+        conexion.Close();
+    }
+}
