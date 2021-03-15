@@ -3,3 +3,132 @@
 <br>
 <h1>Configuración</h1>
 <br>
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Agregar vacunas:</th>
+                <th>Registrar provincias:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Seleccione la marca de la vacuna
+                    <select name = "Vacunas" id = "Vacunas">
+
+                        @foreach (var vacuna in getVacunas())
+                        {
+                            <option value = "@vacuna">@vacuna</option>
+                        }
+
+                    </select>
+
+                    <br><br>
+
+                    Introduzca la cantidad de vacunas <br>
+                    <input class="table-responsive" type="text" @bind-value="@cantidadVacuna"> <br>
+                    <button class="btn btn-primary" @onclick="agregarVacuna">Registrar vacunas</button>
+                </td>
+                <td>
+                    <input type = "text" @bind-value = "@provincia" placeholder = "Introduzca la provincia"> <br> <br>
+                    <button class = "btn btn-primary" @onclick = "agregarProvincia">Registrar provincia</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<br>
+
+@if (@info != null)
+{
+    <div> @info </div>
+}
+
+@code
+{
+    @using System.Data;
+    @using System.Data.SqlClient;
+
+    string nombreVacuna, provincia, info = null, fracaso;
+    int cantidadVacuna;
+
+    SqlConnection conexion = null;
+
+    private List<string> getVacunas()
+    {
+        List<string> vacunas = new List<string>();
+
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+        }
+
+        #endregion
+
+        SqlCommand cmd = new SqlCommand("select NOMBRE_VACUNA from VACUNAS", conexion);
+        conexion.Open();
+
+        SqlDataReader leer = cmd.ExecuteReader();
+
+        while (leer.Read())
+        {
+            vacunas.Add(leer.GetString("NOMBRE_VACUNA"));
+        }
+
+        conexion.Close();
+
+        return vacunas;
+    }
+
+    private void agregarProvincia()
+    {
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+        }
+
+        #endregion
+
+        SqlCommand cmd = new SqlCommand("SP_AGREGAR_PROVINCIA", conexion);
+        cmd.CommandType = CommandType.StoredProcedure;
+        conexion.Open();
+
+        cmd.Parameters.AddWithValue("@NOMBRE_PROVINCIA", provincia);
+
+        cmd.ExecuteNonQuery();
+        conexion.Close();
+
+        info = "Provincia agregada";
+    }
+
+    private void agregarVacuna()
+    {
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+        }
+
+        #endregion
+
+        SqlCommand cmd = new SqlCommand("SP_AGREGAR_VACUNA_EXISTENTE", conexion);
+        cmd.CommandType = CommandType.StoredProcedure;
+        conexion.Open();
+
+        cmd.Parameters.AddWithValue("@NOMBRE_VACUNA", nombreVacuna);
+        cmd.Parameters.AddWithValue("@CANTIDAD_VACUNA_RESTANTE", cantidadVacuna);
+
+        cmd.ExecuteNonQuery();
+        conexion.Close();
+
+        info = "Vacuna agregada";
+    }
+}

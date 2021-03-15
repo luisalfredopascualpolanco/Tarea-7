@@ -13,71 +13,85 @@ namespace Tarea_7.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 1 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 2 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 3 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 4 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 5 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 6 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 7 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 8 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 9 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Tarea_7;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+#line 10 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Tarea_7.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 54 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
+using System.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 55 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
+using System.Data.SqlClient;
 
 #line default
 #line hidden
@@ -90,6 +104,93 @@ using Tarea_7.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 55 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
+                                 
+
+    string nombreVacuna, provincia, info = null, fracaso;
+    int cantidadVacuna;
+
+    SqlConnection conexion = null;
+
+    private List<string> getVacunas()
+    {
+        List<string> vacunas = new List<string>();
+
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+        }
+
+        #endregion
+
+        SqlCommand cmd = new SqlCommand("select NOMBRE_VACUNA from VACUNAS", conexion);
+        conexion.Open();
+
+        SqlDataReader leer = cmd.ExecuteReader();
+
+        while (leer.Read())
+        {
+            vacunas.Add(leer.GetString("NOMBRE_VACUNA"));
+        }
+
+        conexion.Close();
+
+        return vacunas;
+    }
+
+    private void agregarProvincia()
+    {
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+        }
+
+        #endregion
+
+        SqlCommand cmd = new SqlCommand("SP_AGREGAR_PROVINCIA", conexion);
+        cmd.CommandType = CommandType.StoredProcedure;
+        conexion.Open();
+
+        cmd.Parameters.AddWithValue("@NOMBRE_PROVINCIA", provincia);
+
+        cmd.ExecuteNonQuery();
+        conexion.Close();
+
+        info = "Provincia agregada";
+    }
+
+    private void agregarVacuna()
+    {
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+        }
+
+        #endregion
+
+        SqlCommand cmd = new SqlCommand("SP_AGREGAR_VACUNA_EXISTENTE", conexion);
+        cmd.CommandType = CommandType.StoredProcedure;
+        conexion.Open();
+
+        cmd.Parameters.AddWithValue("@NOMBRE_VACUNA", nombreVacuna);
+        cmd.Parameters.AddWithValue("@CANTIDAD_VACUNA_RESTANTE", cantidadVacuna);
+
+        cmd.ExecuteNonQuery();
+        conexion.Close();
+
+        info = "Vacuna agregada";
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591
