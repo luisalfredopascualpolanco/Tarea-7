@@ -6,15 +6,22 @@
 
 <div>
     <input type="text" @bind-value="@cedula" placeholder="Introduzca la cédula"><br><br>
-    <button class="btn btn-primary">Eliminar registro</button>
+    <button class="btn btn-primary" @onclick = "eliminarRegistro">Eliminar registro</button>
 </div>
+
+<br>
+
+@if (@info != null)
+{
+    <div> @info </div>
+}
 
 @code
 {
     @using System.Data;
     @using System.Data.SqlClient;
 
-    string cedula;
+    string cedula, info = null, fracaso;
 
     SqlConnection conexion = null;
 
@@ -24,7 +31,7 @@
 
         if (conexion == null)
         {
-            conexion = new SqlConnection();
+            conexion = new SqlConnection("Data Source = DESKTOP-3VUM4VD; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
         }
 
         #endregion
@@ -37,5 +44,7 @@
 
         cmd.ExecuteNonQuery();
         conexion.Close();
+
+        info = "Registro eliminado";
     }
 }
