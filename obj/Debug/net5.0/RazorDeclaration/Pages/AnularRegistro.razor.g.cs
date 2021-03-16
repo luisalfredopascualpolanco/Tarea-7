@@ -90,14 +90,14 @@ using Tarea_7.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 21 "/Users/alejandro/Repositories/Tarea-7/Pages/AnularRegistro.razor"
+#line 2 "/Users/alejandro/Repositories/Tarea-7/Pages/AnularRegistro.razor"
 using System.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 22 "/Users/alejandro/Repositories/Tarea-7/Pages/AnularRegistro.razor"
+#line 3 "/Users/alejandro/Repositories/Tarea-7/Pages/AnularRegistro.razor"
 using System.Data.SqlClient;
 
 #line default
@@ -113,7 +113,7 @@ using System.Data.SqlClient;
         #pragma warning restore 1998
 #nullable restore
 #line 22 "/Users/alejandro/Repositories/Tarea-7/Pages/AnularRegistro.razor"
-                                 
+ 
 
     string cedula, info = null, fracaso;
 
