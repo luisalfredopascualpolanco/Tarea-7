@@ -5,8 +5,9 @@
     <RootNamespace>Tarea_7</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
-  </ItemGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Tarea-7' " />
 
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup>
 </Project>

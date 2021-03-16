@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{FFD0F093-6F77-4BA1-B36E-3D298561888F}|Tarea-7">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Data/Validacion.cs">
+    <Files>
+      <File FileName="Startup.cs" Line="32" Column="38" />
+      <File FileName="Data/Persona.cs" />
+      <File FileName="Pages/RegistroVacuna.razor" />
+      <File FileName="Pages/RegistroVacuna.razor.css" Line="17" Column="13" />
+      <File FileName="Data/Validacion.cs" Line="68" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Tarea-7" expanded="True">
+            <Node name="Tarea-7" expanded="True">
+              <Node name="Data" expanded="True">
+                <Node name="Validacion.cs" selected="True" />
+              </Node>
+              <Node name="Pages" expanded="True">
+                <Node name="RegistroVacuna.razor" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.ItemProperties.Tarea-7 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
