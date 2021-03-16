@@ -1,4 +1,6 @@
 @page "/anularRegistro"
+@using System.Data
+@using System.Data.SqlClient
 
 <br>
 <h1>Anular registro de vacunado</h1>
@@ -6,7 +8,7 @@
 
 <div>
     <input type="text" @bind-value="@cedula" placeholder="Introduzca la cédula"><br><br>
-    <button class="btn btn-primary" @onclick = "eliminarRegistro">Eliminar registro</button>
+    <button class="btn btn-primary" @onclick="eliminarRegistro">Eliminar registro</button>
 </div>
 
 <br>
@@ -18,8 +20,6 @@
 
 @code
 {
-    @using System.Data;
-    @using System.Data.SqlClient;
 
     string cedula, info = null, fracaso;
 

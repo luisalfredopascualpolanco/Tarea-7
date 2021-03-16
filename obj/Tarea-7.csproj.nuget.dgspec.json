@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alejandro/Itla/C5/prog_3/Tarea-7/Tarea-7.csproj": {}
+    "/Users/alejandro/Repositories/Tarea-7/Tarea-7.csproj": {}
   },
   "projects": {
-    "/Users/alejandro/Itla/C5/prog_3/Tarea-7/Tarea-7.csproj": {
+    "/Users/alejandro/Repositories/Tarea-7/Tarea-7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alejandro/Itla/C5/prog_3/Tarea-7/Tarea-7.csproj",
+        "projectUniqueName": "/Users/alejandro/Repositories/Tarea-7/Tarea-7.csproj",
         "projectName": "Tarea-7",
-        "projectPath": "/Users/alejandro/Itla/C5/prog_3/Tarea-7/Tarea-7.csproj",
+        "projectPath": "/Users/alejandro/Repositories/Tarea-7/Tarea-7.csproj",
         "packagesPath": "/Users/alejandro/.nuget/packages/",
-        "outputPath": "/Users/alejandro/Itla/C5/prog_3/Tarea-7/obj/",
+        "outputPath": "/Users/alejandro/Repositories/Tarea-7/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/alejandro/.config/NuGet/NuGet.Config"
@@ -38,6 +38,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            },
             "System.Net.Http.Json": {
               "target": "Package",
               "version": "[5.0.0, )"

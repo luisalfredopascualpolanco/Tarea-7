@@ -13,84 +13,84 @@ namespace Tarea_7.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 1 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 2 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 3 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 4 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 5 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 6 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 7 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 8 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 9 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 10 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using Tarea_7;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/_Imports.razor"
+#line 11 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
 using Tarea_7.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/Pages/FetchData.razor"
+#line 3 "/Users/alejandro/Repositories/Tarea-7/Pages/FetchData.razor"
 using Tarea_7.Data;
 
 #line default
@@ -105,7 +105,7 @@ using Tarea_7.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "/Users/alejandro/Itla/C5/prog_3/Tarea-7/Pages/FetchData.razor"
+#line 39 "/Users/alejandro/Repositories/Tarea-7/Pages/FetchData.razor"
        
     private WeatherForecast[] forecasts;
 
