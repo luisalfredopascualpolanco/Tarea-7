@@ -82,6 +82,20 @@ using Tarea_7.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 30 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\VacunadosXSigno.razor"
+using System.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 31 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\VacunadosXSigno.razor"
+using System.Data.SqlClient;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/vacunadoXsigno")]
     public partial class VacunadosXSigno : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -91,11 +105,43 @@ using Tarea_7.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\VacunadosXSigno.razor"
- 
-    string[] signos = {"Capricornio", "Acuario", "Piscis", "Aries", "Tauro", "Géminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario"};
+#line 31 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\VacunadosXSigno.razor"
+                                 
 
-    
+    string[] signos = { "CAPRICORNIO", "ACUARIO", "PISCIS", "ARIES", "TAURO", "GÉMINIS", "CÁNCER", "LEO", "VIRGO", "LIBRA", "ESCORPIO", "SAGITARIO" };
+
+    SqlConnection conexion = null;
+
+    List<string> vacunadosXsigno()
+    {
+        List<string> data = new List<string>();
+
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+        }
+
+        #endregion
+
+        for (int i = 0; i < 12; i++)
+        {
+            SqlCommand cmd = new SqlCommand("select count (SIGNO_ZODIACAL) from VACUNACION where SIGNO_ZODIACAL = '" + signos[i] + "'", conexion);
+            conexion.Open();
+
+            SqlDataReader leer = cmd.ExecuteReader();
+
+            while (leer.Read())
+            {
+                data.Add(leer.GetInt32(0).ToString());
+            }
+
+            conexion.Close();
+        }
+
+        return data;
+    }
 
 #line default
 #line hidden

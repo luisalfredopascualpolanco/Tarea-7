@@ -83,14 +83,14 @@ using Tarea_7.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 54 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
+#line 52 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
 using System.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 55 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
+#line 53 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
 using System.Data.SqlClient;
 
 #line default
@@ -105,7 +105,7 @@ using System.Data.SqlClient;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 55 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
+#line 53 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
                                  
 
     string nombreVacuna, provincia, info = null, fracaso;
