@@ -13,91 +13,84 @@ namespace Tarea_7.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 1 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
-using System.Net.Http.Json;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 2 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 3 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 4 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 5 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 6 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 7 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 8 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 9 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Tarea_7;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 10 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Tarea_7.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 52 "/Users/alejandro/Repositories/Tarea-7/Pages/Configuracion.razor"
+#line 52 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
 using System.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 53 "/Users/alejandro/Repositories/Tarea-7/Pages/Configuracion.razor"
+#line 53 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
 using System.Data.SqlClient;
 
 #line default
@@ -112,7 +105,7 @@ using System.Data.SqlClient;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "/Users/alejandro/Repositories/Tarea-7/Pages/Configuracion.razor"
+#line 53 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\Configuracion.razor"
                                  
 
     string nombreVacuna, provincia, info = null, fracaso;

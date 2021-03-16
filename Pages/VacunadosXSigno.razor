@@ -5,7 +5,7 @@
 <br>
 
 <div>
-    <table class = "table table-bordered">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 @foreach (var signo in signos)
@@ -15,8 +15,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                
+            <tr>                
+                @foreach (var conteo in vacunadosXsigno())
+                {
+                    <td>@conteo vacunados.</td>
+                }
             </tr>
         </tbody>
     </table>
@@ -24,7 +27,41 @@
 
 @code
 {
-    string[] signos = {"Capricornio", "Acuario", "Piscis", "Aries", "Tauro", "Géminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario"};
+    @using System.Data;
+    @using System.Data.SqlClient;
 
-    
+    string[] signos = { "CAPRICORNIO", "ACUARIO", "PISCIS", "ARIES", "TAURO", "GÉMINIS", "CÁNCER", "LEO", "VIRGO", "LIBRA", "ESCORPIO", "SAGITARIO" };
+
+    SqlConnection conexion = null;
+
+    List<string> vacunadosXsigno()
+    {
+        List<string> data = new List<string>();
+
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+        }
+
+        #endregion
+
+        for (int i = 0; i < 12; i++)
+        {
+            SqlCommand cmd = new SqlCommand("select count (SIGNO_ZODIACAL) from VACUNACION where SIGNO_ZODIACAL = '" + signos[i] + "'", conexion);
+            conexion.Open();
+
+            SqlDataReader leer = cmd.ExecuteReader();
+
+            while (leer.Read())
+            {
+                data.Add(leer.GetInt32(0).ToString());
+            }
+
+            conexion.Close();
+        }
+
+        return data;
+    }
 }

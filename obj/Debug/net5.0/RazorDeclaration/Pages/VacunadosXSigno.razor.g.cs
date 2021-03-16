@@ -13,78 +13,85 @@ namespace Tarea_7.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 1 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
-using System.Net.Http.Json;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 2 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 3 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 4 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 5 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 6 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 7 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 8 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 9 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Tarea_7;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 10 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\_Imports.razor"
 using Tarea_7.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 30 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\VacunadosXSigno.razor"
+using System.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 31 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\VacunadosXSigno.razor"
+using System.Data.SqlClient;
 
 #line default
 #line hidden
@@ -98,11 +105,43 @@ using Tarea_7.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "/Users/alejandro/Repositories/Tarea-7/Pages/VacunadosXSigno.razor"
- 
-    string[] signos = {"Capricornio", "Acuario", "Piscis", "Aries", "Tauro", "Géminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario"};
+#line 31 "C:\Users\Ramon\source\repos\luisalfredopascualpolanco\Tarea-7\Pages\VacunadosXSigno.razor"
+                                 
 
-    
+    string[] signos = { "CAPRICORNIO", "ACUARIO", "PISCIS", "ARIES", "TAURO", "GÉMINIS", "CÁNCER", "LEO", "VIRGO", "LIBRA", "ESCORPIO", "SAGITARIO" };
+
+    SqlConnection conexion = null;
+
+    List<string> vacunadosXsigno()
+    {
+        List<string> data = new List<string>();
+
+        #region "PATRON SIGLETON"
+
+        if (conexion == null)
+        {
+            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+        }
+
+        #endregion
+
+        for (int i = 0; i < 12; i++)
+        {
+            SqlCommand cmd = new SqlCommand("select count (SIGNO_ZODIACAL) from VACUNACION where SIGNO_ZODIACAL = '" + signos[i] + "'", conexion);
+            conexion.Open();
+
+            SqlDataReader leer = cmd.ExecuteReader();
+
+            while (leer.Read())
+            {
+                data.Add(leer.GetInt32(0).ToString());
+            }
+
+            conexion.Close();
+        }
+
+        return data;
+    }
 
 #line default
 #line hidden
