@@ -54,6 +54,7 @@
 
     string nombreVacuna, provincia, info = null, fracaso;
     int cantidadVacuna;
+    int vacunasrestante = 0;
 
     SqlConnection conexion = null;
 
@@ -65,7 +66,7 @@
 
         if (conexion == null)
         {
-            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+            conexion = new SqlConnection("Data Source = LAPTOP-1MM0QVKJ\\SQLEXPRESS; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
         }
 
         #endregion
@@ -91,7 +92,7 @@
 
         if (conexion == null)
         {
-            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+            conexion = new SqlConnection("Data Source = LAPTOP-1MM0QVKJ\\SQLEXPRESS; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
         }
 
         #endregion
@@ -114,7 +115,7 @@
 
         if (conexion == null)
         {
-            conexion = new SqlConnection("Data Source = DESKTOP-PDNLRPM; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+            conexion = new SqlConnection("Data Source = LAPTOP-1MM0QVKJ\\SQLEXPRESS; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
         }
 
         #endregion
@@ -125,6 +126,7 @@
 
         cmd.Parameters.AddWithValue("@NOMBRE_VACUNA", nombreVacuna);
         cmd.Parameters.AddWithValue("@CANTIDAD_VACUNA_RESTANTE", cantidadVacuna);
+        cmd.Parameters.AddWithValue("@CANTIDAD_VACUNA_RESTANTE", vacunasrestante);
 
         cmd.ExecuteNonQuery();
         conexion.Close();

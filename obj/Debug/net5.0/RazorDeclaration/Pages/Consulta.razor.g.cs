@@ -12,98 +12,98 @@ namespace Tarea_7.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 1 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 2 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 3 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 4 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 5 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 6 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 7 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 8 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 9 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 10 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using Tarea_7;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "/Users/alejandro/Repositories/Tarea-7/_Imports.razor"
+#line 11 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
 using Tarea_7.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "/Users/alejandro/Repositories/Tarea-7/Pages/Consulta.razor"
+#line 1 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\Pages\Consulta.razor"
 using System.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/alejandro/Repositories/Tarea-7/Pages/Consulta.razor"
+#line 2 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\Pages\Consulta.razor"
 using System.Data.SqlClient;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/alejandro/Repositories/Tarea-7/Pages/Consulta.razor"
+#line 3 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\Pages\Consulta.razor"
 using System.Linq;
 
 #line default
@@ -118,7 +118,7 @@ using System.Linq;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 81 "/Users/alejandro/Repositories/Tarea-7/Pages/Consulta.razor"
+#line 81 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\Pages\Consulta.razor"
            
         public class Persona
         {
@@ -185,7 +185,7 @@ using System.Linq;
         {
             BuscarPorNombre("Ramon");
         }
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-7UUUADN;Initial Catalog=JORNADA_DE_VACUNACION;Integrated Security=True");
+        SqlConnection con = new SqlConnection("Data Source=LAPTOP-1MM0QVKJ\\SQLEXPRESS;Initial Catalog=JORNADA_DE_VACUNACION;Integrated Security=True");
         SqlCommand comando;
         SqlDataReader leer;
         List<Persona> dato = new List<Persona>();

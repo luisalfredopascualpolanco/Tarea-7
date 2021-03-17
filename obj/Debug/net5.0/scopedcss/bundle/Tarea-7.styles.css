@@ -1,3 +1,48 @@
+/* _content/Tarea-7/Pages/RegistroVacuna.razor.rz.scp.css */
+.ocultar[b-ot8mcsg2ba] {
+    display: none;
+}
+
+.ced[b-ot8mcsg2ba] {
+    z-index: 11;
+}
+
+.mostrar[b-ot8mcsg2ba] {
+    z-index: 1;
+    position: relative;
+    animation-name: mostrar-b-ot8mcsg2ba;
+    animation-duration: 1s;
+}
+
+.form[b-ot8mcsg2ba] {
+    width: 90%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .1);
+    margin: 3em auto;
+    padding: 1em 2em;
+}
+
+.field[b-ot8mcsg2ba] {
+    color: red;
+    font-size: 40px;
+}
+
+@keyframes mostrar-b-ot8mcsg2ba {
+    0% {
+        opacity: 0;
+        top: -50px;
+    }
+    50% {
+        opacity: .2;
+    }
+    70% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
 /* _content/Tarea-7/Shared/MainLayout.razor.rz.scp.css */
 .page[b-pd9rrj9wdt] {
     position: relative;
