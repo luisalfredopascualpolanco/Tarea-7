@@ -1,78 +1,94 @@
 ﻿@page "/registro"
 @using Tarea_7.Data
+@using System.Data.SqlClient;
+@using System.Data;
 
-@inject IHttpClientFactory _clientFactory 
+@inject IHttpClientFactory _clientFactory
 
 <h3>Registro</h3>
 
 @if (_persona != null)
 {
     <EditForm Model="@_persona">
-    <div class="row mb-3 ced">
-        <div class="col-auto">
-            <InputText @bind-Value="_persona.Cedula" placeholder="Cedula" class="form-control"/>
+        <div class="row mb-3 ced">
+            <div class="col-auto">
+                <InputText @bind-Value="_persona.Cedula" placeholder="Cedula" class="form-control" />
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-primary" @onclick="BuscarCedula">Buscar</button>
+            </div>
         </div>
-        <div class="col-auto">
-            <button type="button" class="btn btn-primary" @onclick="BuscarCedula">Buscar</button>
-        </div>
-    </div>
-    <div class="@(isShowed ? "mostrar" : "ocultar") form row">
+        <div class="@(isShowed ? "mostrar" : "ocultar") form row">
 
-        <div class="col">
-            <p>
-                <label>
-                    Nombre:
-                    <InputText @bind-Value="_persona.Nombres" class="form-control" />
-                </label>
-            </p>
-            <p>
-                <label>
-                    Apellido:
-                    <InputText @bind-Value="_persona.Apellidos" class="form-control" />
-                </label>
-            </p>
+            <div class="col">
+                <p>
+                    <label>
+                        Nombre:
+                        <InputText @bind-Value="_persona.Nombres" class="form-control" />
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Apellido:
+                        <InputText @bind-Value="_persona.Apellidos" class="form-control" />
+                    </label>
+                </p>
 
-            <p>
-                <label>
-                    Telefono:
-                    <InputText @bind-Value="_persona.Telefono" class="form-control" />
-                </label>
-            </p>
-        </div>
+                <p>
+                    <label>
+                        Telefono:
+                        <InputText @bind-Value="_persona.Telefono" class="form-control" />
+                    </label>
+                </p>
+                <p>
+                    Signo Zodiacal:
+                    <div class="form-control">
+                        @signo_zodiacal(_persona.Nacimiento)
+                        @_persona.Signo_Zodiacal
+                    </div>
+                </p>
+            </div>
 
-        <div class="col">
-            <p>
-                <label>
-                    Fecha de Nacimiento:
-                    <InputDate @bind-Value="_persona.Nacimiento" class="form-control" />
-                </label>
-            </p>
-            <p>
-                <label>
-                    Provincia:
-                    <InputSelect @bind-Value="_persona.Provincia" class="form-control">
-                        <option value="">Seleccione la provincia</option>
-                        <option value="China">Santo Domingo</option>
-                        <option value="Europea">Santiago</option>
-                    </InputSelect>
-                </label>
-            </p>
-            <p>
-                <label>
-                    Vacuna Recibida:
-                    <InputSelect @bind-Value="_persona.VacunaRecibida" class="form-control">
-                        <option value="">Selecciona la vacuna</option>
-                        <option value="China">China</option>
-                        <option value="Europea">Europea</option>
-                    </InputSelect>
-                </label>
-            </p>
+            <div class="col">
+                <p>
+                    <label>
+                        Fecha de Nacimiento:
+                        <InputDate @bind-Value="_persona.Nacimiento" class="form-control" />
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Provincia:
+                        <InputSelect @bind-Value="_persona.Provincia" class="form-control">
+                            <option value="">Seleccione la provincia</option>
+                            <option value="China">Santo Domingo</option>
+                            <option value="Europea">Santiago</option>
+                        </InputSelect>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Vacuna Recibida:
+                        <InputSelect @bind-Value="_persona.VacunaRecibida" class="form-control">
+                            <option value="">Selecciona la vacuna</option>
+                            <option value="China">China</option>
+                            <option value="Europea">Europea</option>
+                        </InputSelect>
+                    </label>
+                </p>
+           
+                <p>
+                    <button type="button" class="btn btn-primary" @onclick="BuscarCedula">Agregar Paciente</button>
+                </p>
+            </div>
         </div>
-    </div>
 
     </EditForm>
 }
 @code {
+
+    SqlConnection conexion = new SqlConnection("Data Source = LAPTOP-1MM0QVKJ\\SQLEXPRESS; Initial Catalog = JORNADA_DE_VACUNACION; Integrated Security = true");
+
     Persona _persona = new Persona() { Nacimiento = DateTime.UtcNow };
     bool isShowed = false;
 
@@ -94,4 +110,26 @@
 
         isShowed = !isShowed;
     }
+    string signo;
+    string signo_zodiacal (DateTime fecha)
+    {
+
+        SqlDataReader leer;
+        SqlCommand cmd = new SqlCommand("SP_VALIDAR_SIGNO", conexion);
+        cmd.CommandType = CommandType.StoredProcedure;
+        conexion.Open();
+        cmd.Parameters.AddWithValue("@FECHA_DE_NACIMIENTO", fecha);
+        leer = cmd.ExecuteReader();
+
+        //List<E_Edificios> listar = new List<E_Edificios>();
+        while (leer.Read())
+        {
+            _persona.Signo_Zodiacal = leer.ToString();
+        }
+        conexion.Close();
+        leer.Close();
+
+        return _persona.Signo_Zodiacal;
+    }
+
 }

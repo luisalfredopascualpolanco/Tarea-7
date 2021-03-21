@@ -5,7 +5,7 @@ namespace Tarea_7.Data
     {
         private string _apellidos;
         private DateTime _nacimiento;
-
+        public string Signo_Zodiacal;
         public string Cedula { get; set; }
         public string Nombres { get; set; }
         public string Apellidos
