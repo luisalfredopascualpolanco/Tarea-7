@@ -90,6 +90,20 @@ using Tarea_7.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+using Radzen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\_Imports.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 30 "D:\Clases\Programacion 3\Tarea 7\Tarea-7\Pages\VacunadosXSigno.razor"
 using System.Data;
 

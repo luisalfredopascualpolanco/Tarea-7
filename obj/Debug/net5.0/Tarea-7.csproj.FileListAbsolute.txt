@@ -305,3 +305,5 @@ D:\Clases\Programacion 3\Tarea 7\Tarea-7\obj\Debug\net5.0\Tarea-7.RazorTargetAss
 D:\Clases\Programacion 3\Tarea 7\Tarea-7\obj\Debug\net5.0\Tarea-7.Views.pdb
 D:\Clases\Programacion 3\Tarea 7\Tarea-7\obj\Debug\net5.0\Tarea-7.csproj.CopyComplete
 D:\Clases\Programacion 3\Tarea 7\Tarea-7\obj\Debug\net5.0\Tarea-7.genruntimeconfig.cache
+D:\Clases\Programacion 3\Tarea 7\Tarea-7\bin\Debug\net5.0\Radzen.Blazor.dll
+D:\Clases\Programacion 3\Tarea 7\Tarea-7\bin\Debug\net5.0\System.Linq.Dynamic.Core.dll
